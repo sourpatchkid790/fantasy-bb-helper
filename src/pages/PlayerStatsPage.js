@@ -5,6 +5,7 @@ function PlayerStatsPage() {
     <div>
       <Header />
       <p>This is the Player Stats Page</p>
+      
     </div>
     
     
