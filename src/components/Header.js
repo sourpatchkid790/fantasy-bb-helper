@@ -1,7 +1,8 @@
 import classes from './Header.module.css';
 import { Link } from 'react-router-dom';
 
-
+// Header component put on all pages
+// Links to all pages in the website
 function Header() {
   return (
     <div>

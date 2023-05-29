@@ -1,5 +1,7 @@
 import Header from "../components/Header";
 
+// This page displays player stats
+
 function PlayerStatsPage() {
   return (
     <div>
