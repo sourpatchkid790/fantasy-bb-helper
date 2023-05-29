@@ -1,6 +1,9 @@
 import Header from "../components/Header";
 import axios from "axios";
 import { useState } from "react";
+
+// This page was used to test an api request to the flask backend 
+// Source used: https://dev.to/nagatodev/how-to-connect-flask-to-reactjs-1k8i
 function TestAPI() {
 
   const [profileData, setProfileData] = useState(null)
