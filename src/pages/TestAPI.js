@@ -6,17 +6,19 @@ import { useState } from "react";
 // Source used: https://dev.to/nagatodev/how-to-connect-flask-to-reactjs-1k8i
 function TestAPI() {
 
-  const [profileData, setProfileData] = useState(null)
+  // const [profileData, setProfileData] = useState(null)
+  const [playerData, setPlayerData] = useState(null)
+
   function getData() {
     axios({
       method: "GET",
-      url:"/profile",
+      url:"/bbref",
     })
     .then((response) => {
       const res =response.data
-      setProfileData(({
-        profile_name: res.name,
-        about_me: res.about}))
+      setPlayerData(({
+        year: res.year,
+        headers: res.headers}))
     }).catch((error) => {
       if (error.response) {
         console.log(error.response)
@@ -29,13 +31,13 @@ function TestAPI() {
   return (
     <div>
       <Header /> 
-      <p>This is the API testing pag</p>
+      <p>This is the API testing page</p>
       
       <button onClick={getData}>Get Profile Data</button>
-      {profileData && 
+      {playerData && 
           <div>
-            <p>Profile name: {profileData.profile_name}</p>
-            <p>About me: {profileData.about_me}</p>
+            <p>year: {playerData.year}</p>
+            <p>headers: {playerData.headers[0]}</p>
           </div>
         }
 
