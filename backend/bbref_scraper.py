@@ -34,11 +34,11 @@ class bbrefScraper:
     self.headers = self.headers[1:]
 
     rows = soup.findAll('tr')[1:]
-    player_stats = [[td.getText() for td in rows[i].findAll('td')]
+    self.player_stats = [[td.getText() for td in rows[i].findAll('td')]
               for i in range(len(rows))]
 
 
-    self.create_dataframe(player_stats, self.headers)
+    self.create_dataframe(self.player_stats, self.headers)
 
   # Uses the array created from extract_stats to put all stats into a pandas dataframe
   def create_dataframe(self, player_stats, headers):
@@ -51,7 +51,8 @@ class bbrefScraper:
     # print(self.dataframe.loc[player_name])
     print(self.dataframe.loc[(self.dataframe["Player"] == player_name)] )
    
-   
+  def get_dataframe(self):
+    return self.dataframe
 
 
   def __init__(self, year):

@@ -1,5 +1,5 @@
 from flask import Flask
-
+from json import loads, dumps
 from bbref_scraper import bbrefScraper
 api = Flask(__name__)
 
@@ -17,11 +17,18 @@ def get_stats():
     scraper = bbrefScraper(2019)
     year = scraper.get_year()
     headers = scraper.get_headers()
-    
+    dataframe = scraper.get_dataframe()
+    jsondataframe = dataframe.to_json(orient="index")
+    parsed = loads(jsondataframe)
+    name = parsed["0"]["Player"]
+    # print(parsed)
+
     
     response_body = {
         "year": year,
         "headers": headers,
+        "name": name,
+        "json": parsed,
     }
 
     return response_body

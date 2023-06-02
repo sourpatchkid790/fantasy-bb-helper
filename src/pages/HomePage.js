@@ -5,13 +5,6 @@ function HomePage() {
   return (
     <div>
       <Header />
-      <div>
-        <Link to="/api">
-          <button>Go to API</button>
-        </Link>
-        
-      </div>
-      
       <p>This is the home page</p>
     </div>
   );
